@@ -232,7 +232,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form text-center">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form id="my-form" action="https://formspree.io/f/xjvzzglg" method="POST">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
                                     <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
@@ -259,6 +259,7 @@
                             <div>
                                 <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send
                                     Message</button>
+                                <p id="my-form-status"></p>
                             </div>
                         </form>
                     </div>
@@ -309,8 +310,9 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+    <!--script src="mail/jqBootstrapValidation.min.js"></script-->
+    <!--script src="mail/contact.js"></script-->
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
