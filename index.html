@@ -1,1 +1,342 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS 499 Computer Science Capstone - Gregory John</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">CS 499 ePortfolio</div>
+        <ul class="nav-menu">
+          <li><a href="#self-assessment">Self-Assessment</a></li>
+          <li><a href="#code-review">Code Review</a></li>
+          <li><a href="#artifacts">Artifacts</a></li>
+          <li><a href="#repository">Repository</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Computer Science Capstone Portfolio</h1>
+        <p class="hero-subtitle">Gregory John | CS 499 | August 2025</p>
+        <p class="hero-description">
+          From Arduino Sketch to Production-Ready Python System
+        </p>
+        <a href="#artifacts" class="btn-primary">View Projects</a>
+      </div>
+    </header>
+
+    <section id="self-assessment" class="section">
+      <div class="container">
+        <h2 class="section-title">Professional Self-Assessment</h2>
+
+        <div class="assessment-content">
+          <p class="lead">
+            Throughout my journey in the Computer Science program at SNHU, I've
+            transformed from someone who could write basic scripts into a
+            software engineer capable of designing and implementing complex,
+            production-ready systems. This capstone project—evolving a simple
+            Arduino timer into a sophisticated Raspberry Pi-based astronomical
+            light controller—perfectly encapsulates this growth.
+          </p>
+
+          <h3>Technical Foundation</h3>
+          <p>
+            My coursework has equipped me with fundamental skills that I've
+            applied throughout this project. Data Structures (CS 260) taught me
+            to think about efficiency and organization, which I applied when
+            designing the circular buffer system for sensor data and
+            implementing the LRU cache for astronomical calculations. Software
+            Engineering (CS 310) provided the foundation for modular design and
+            test-driven development, evident in my comprehensive test suite with
+            77 unit and integration tests. Database concepts from DAD 220
+            enabled me to design a normalized schema that transforms a stateless
+            Arduino sketch into a data-driven platform capable of historical
+            analysis.
+          </p>
+
+          <h3>Professional Growth</h3>
+          <p>
+            Beyond the technical skills, this program has shaped my professional
+            values around writing maintainable, well-documented code. Early
+            courses emphasized quick solutions, but later courses like Software
+            Testing (CS 320) taught me that professional software requires
+            comprehensive testing, clear documentation, and forward-thinking
+            design. This shift in mindset is evident in my capstone, where I
+            spent as much time writing tests and documentation as I did writing
+            the actual functionality.
+          </p>
+
+          <div class="skills-grid">
+            <div class="skill-card">
+              <h4>Collaboration & Communication</h4>
+              <p>
+                While this capstone was an individual project, my experience in
+                collaborative environments throughout the program influenced its
+                design. The modular architecture with clear interfaces between
+                components reflects lessons learned from team projects about the
+                importance of component independence.
+              </p>
+            </div>
+            <div class="skill-card">
+              <h4>Data Structures & Algorithms</h4>
+              <p>
+                Implemented advanced data structures including circular buffers
+                for O(1) operations, priority queues for event processing, and
+                trigonometric lookup tables with interpolation achieving 1000x
+                performance improvements.
+              </p>
+            </div>
+            <div class="skill-card">
+              <h4>Software Engineering</h4>
+              <p>
+                Demonstrated professional practices through modular
+                architecture, dependency injection, comprehensive error
+                handling, and 96% test coverage across 77 automated tests.
+              </p>
+            </div>
+            <div class="skill-card">
+              <h4>Database Design</h4>
+              <p>
+                Created a six-table normalized schema with migration support,
+                connection pooling, and thread-safe operations, transforming a
+                stateless system into a data-driven platform.
+              </p>
+            </div>
+            <div class="skill-card">
+              <h4>Security Mindset</h4>
+              <p>
+                Implemented input validation, parameterized queries, rate
+                limiting, and comprehensive error handling to prevent security
+                vulnerabilities and information leakage.
+              </p>
+            </div>
+            <div class="skill-card">
+              <h4>Innovation</h4>
+              <p>
+                Applied event-driven architecture, predictive algorithms, and
+                intelligent caching to create a system that learns from
+                historical patterns and optimizes its behavior over time.
+              </p>
+            </div>
+          </div>
+
+          <h3>Portfolio Integration</h3>
+          <p>
+            The three enhancements in this portfolio—software
+            design/engineering, algorithms/data structures, and databases—work
+            together to demonstrate full-stack development capabilities. The
+            modular Python architecture provides the framework for efficient
+            astronomical calculations that are persisted and analyzed through
+            the database layer. Each enhancement builds upon the others,
+            creating a cohesive system that's greater than the sum of its parts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="code-review" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Code Review</h2>
+
+        <div class="video-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Code Review Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="review-content">
+          <h3>Original System Analysis</h3>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <h4>Arduino Implementation</h4>
+              <ul>
+                <li>Monolithic 400-line sketch</li>
+                <li>Hardcoded configuration</li>
+                <li>No data persistence</li>
+                <li>Manual testing only</li>
+                <li>2KB RAM limitation</li>
+              </ul>
+            </div>
+            <div class="comparison-card">
+              <h4>Enhanced Python System</h4>
+              <ul>
+                <li>8 modular components</li>
+                <li>YAML configuration</li>
+                <li>SQLite database</li>
+                <li>77 automated tests</li>
+                <li>Unlimited resources</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="artifacts" class="section">
+      <div class="container">
+        <h2 class="section-title">Enhancement Artifacts</h2>
+
+        <div class="artifacts-grid">
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">01</span>
+              <h3>Software Design & Engineering</h3>
+            </div>
+            <p>
+              Complete architectural redesign from monolithic Arduino sketch to
+              modular Python system with event-driven communication, dependency
+              injection, and comprehensive error handling.
+            </p>
+            <ul class="artifact-features">
+              <li>8 distinct modules with single responsibilities</li>
+              <li>Event-driven publish-subscribe system</li>
+              <li>Comprehensive error handling with retry logic</li>
+              <li>96% test coverage across 77 tests</li>
+            </ul>
+            <a href="software-engineering.html" class="btn-secondary"
+              >View Details →</a
+            >
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">02</span>
+              <h3>Algorithms & Data Structures</h3>
+            </div>
+            <p>
+              Sophisticated astronomical calculations with intelligent caching,
+              efficient data structures for sensor management, and performance
+              optimizations achieving 1000x speedup.
+            </p>
+            <ul class="artifact-features">
+              <li>Astronomical calculations with ephem library</li>
+              <li>LRU cache with microsecond lookups</li>
+              <li>Circular buffer for O(1) operations</li>
+              <li>Trigonometric lookup table with interpolation</li>
+            </ul>
+            <a href="algorithms.html" class="btn-secondary">View Details →</a>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">03</span>
+              <h3>Database</h3>
+            </div>
+            <p>
+              Comprehensive data persistence layer with normalized schema,
+              migration support, and analytics capabilities, transforming a
+              stateless timer into a data-driven platform.
+            </p>
+            <ul class="artifact-features">
+              <li>6-table normalized schema</li>
+              <li>Thread-safe connection pooling</li>
+              <li>Versioned migration system</li>
+              <li>Automatic backup and analytics</li>
+            </ul>
+            <a href="database.html" class="btn-secondary">View Details →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="repository" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Project Repository</h2>
+
+        <div class="repo-content">
+          <div class="repo-stats">
+            <div class="stat">
+              <span class="stat-number">8</span>
+              <span class="stat-label">Modules</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">77</span>
+              <span class="stat-label">Tests</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">96%</span>
+              <span class="stat-label">Coverage</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">6</span>
+              <span class="stat-label">Tables</span>
+            </div>
+          </div>
+
+          <div class="repo-links">
+            <a
+              href="https://github.com/yourusername/astro-light-controller"
+              class="btn-primary"
+            >
+              View on GitHub
+            </a>
+            <a
+              href="https://github.com/yourusername/astro-light-controller/blob/main/README.md"
+              class="btn-secondary"
+            >
+              Documentation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outcomes" class="section">
+      <div class="container">
+        <h2 class="section-title">Course Outcomes</h2>
+
+        <div class="outcomes-grid">
+          <div class="outcome-card">
+            <h4>CS-499-01</h4>
+            <p>Building Collaborative Environments</p>
+            <span class="outcome-status">✓ Achieved</span>
+          </div>
+          <div class="outcome-card">
+            <h4>CS-499-02</h4>
+            <p>Professional Communications</p>
+            <span class="outcome-status">✓ Achieved</span>
+          </div>
+          <div class="outcome-card">
+            <h4>CS-499-03</h4>
+            <p>Computing Solutions Design</p>
+            <span class="outcome-status">✓ Achieved</span>
+          </div>
+          <div class="outcome-card">
+            <h4>CS-499-04</h4>
+            <p>Innovative Techniques</p>
+            <span class="outcome-status">✓ Achieved</span>
+          </div>
+          <div class="outcome-card">
+            <h4>CS-499-05</h4>
+            <p>Security Mindset</p>
+            <span class="outcome-status">✓ Achieved</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Gregory John | CS 499 Computer Science Capstone | SNHU</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

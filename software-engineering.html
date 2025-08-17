@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Design & Engineering - CS 499 Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">CS 499 ePortfolio</div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#code-review">Code Review</a></li>
+          <li><a href="index.html#artifacts">Artifacts</a></li>
+          <li><a href="index.html#repository">Repository</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header
+      class="hero"
+      style="background: linear-gradient(135deg, #3b82f6, #8b5cf6)"
+    >
+      <div class="hero-content">
+        <h1>Software Design & Engineering</h1>
+        <p class="hero-subtitle">
+          From Monolithic Arduino to Modular Python Architecture
+        </p>
+        <a href="index.html#artifacts" class="btn-primary"
+          >← Back to Artifacts</a
+        >
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Artifact Description</h2>
+
+        <div class="assessment-content">
+          <p class="lead">
+            The Astronomical Light Controller began as a monolithic Arduino
+            sketch written in C++ that provided basic timer functionality for
+            chicken coop lighting. Created initially in 2023 for a personal
+            homestead project, the Arduino version was functional but severely
+            limited by the platform's constraints: 2KB of RAM, no file system,
+            and minimal processing power.
+          </p>
+
+          <p>
+            For this enhancement, I completely redesigned the system in Python
+            for deployment on Raspberry Pi, transforming it from a simple timer
+            into a sophisticated, event-driven automation platform. This wasn't
+            just a translation from one language to another—it was a complete
+            architectural reimagining that leveraged Python's capabilities to
+            create a production-ready system.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Enhancement Details</h2>
+
+        <div class="comparison-grid">
+          <div class="comparison-card">
+            <h4>Original Arduino Architecture</h4>
+            <ul>
+              <li>Single 400-line sketch file</li>
+              <li>All logic tightly coupled</li>
+              <li>Global variables throughout</li>
+              <li>No error handling</li>
+              <li>Hardcoded configuration</li>
+              <li>No testing capability</li>
+            </ul>
+          </div>
+          <div class="comparison-card">
+            <h4>Enhanced Python Architecture</h4>
+            <ul>
+              <li>8 distinct modules</li>
+              <li>Loose coupling via events</li>
+              <li>Encapsulated state</li>
+              <li>Comprehensive error handling</li>
+              <li>YAML configuration</li>
+              <li>77 automated tests</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Modular Component Design</h3>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>RelayController</h4>
+            <p>
+              Hardware abstraction layer for GPIO control with configurable
+              active-high/active-low logic, safety interlocks, and state
+              persistence across restarts.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>AstronomicalCalculator</h4>
+            <p>
+              Precise sunrise/sunset calculations for any geographic location
+              with caching, offset support, and handling of edge cases like
+              polar day/night.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>EventManager</h4>
+            <p>
+              Publish-subscribe system enabling loose coupling between
+              components. Components can react to events without knowing about
+              each other's implementation.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>DatabaseManager</h4>
+            <p>
+              Thread-safe database operations with connection pooling, automatic
+              retry logic, and transaction management for data integrity.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>PredictiveController</h4>
+            <p>
+              Machine learning component that analyzes historical patterns to
+              optimize timing decisions and predict future behavior.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>PerformanceMonitor</h4>
+            <p>
+              System metrics collection and profiling to identify bottlenecks
+              and ensure optimal performance under load.
+            </p>
+          </div>
+        </div>
+
+        <h3>Event-Driven Architecture</h3>
+        <div class="assessment-content">
+          <p>
+            Instead of tight coupling between components, I implemented a
+            publish-subscribe event system. When the astronomical calculator
+            determines sunrise has occurred, it publishes a SUNRISE event. The
+            relay controller, database manager, and any other interested
+            components can subscribe to this event and react accordingly. This
+            loose coupling makes the system extensible—new features can be added
+            by simply subscribing to relevant events without modifying existing
+            code.
+          </p>
+
+          <div class="code-example">
+            <h4>Example: Event-Driven Communication</h4>
+            <pre><code># Publisher (AstronomicalCalculator)
+if current_time >= sunrise_time:
+    self.event_manager.publish('SUNRISE', {
+        'time': sunrise_time,
+        'location': self.location
+    })
+
+# Subscriber (RelayController)
+self.event_manager.subscribe('SUNRISE', self.handle_sunrise)
+
+def handle_sunrise(self, event_data):
+    self.activate_relay(self.morning_relay)
+    logger.info(f"Morning relay activated at {event_data['time']}")</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Professional Engineering Practices</h2>
+
+        <div class="artifacts-grid">
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">01</span>
+              <h3>Dependency Injection</h3>
+            </div>
+            <p>
+              Components receive their dependencies through constructors rather
+              than creating them internally. This makes the system testable with
+              mock objects and allows different implementations to be swapped
+              easily.
+            </p>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">02</span>
+              <h3>Error Handling</h3>
+            </div>
+            <p>
+              Every external operation includes exception handling with
+              exponential backoff retry logic. The system gracefully degrades
+              when components fail rather than crashing entirely.
+            </p>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">03</span>
+              <h3>Comprehensive Testing</h3>
+            </div>
+            <p>
+              77 automated tests provide 96% code coverage. Tests include unit
+              tests for individual components, integration tests for component
+              interaction, and system tests for end-to-end scenarios.
+            </p>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">04</span>
+              <h3>Documentation</h3>
+            </div>
+            <p>
+              Every public method includes detailed docstrings with parameter
+              types, return values, and usage examples. The codebase is
+              self-documenting with clear variable names and logical structure.
+            </p>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">05</span>
+              <h3>Configuration Management</h3>
+            </div>
+            <p>
+              YAML-based configuration replaces hardcoded values, allowing
+              runtime adjustments without code changes. Configuration is
+              validated on load with helpful error messages.
+            </p>
+          </div>
+
+          <div class="artifact-card">
+            <div class="artifact-header">
+              <span class="artifact-number">06</span>
+              <h3>Logging</h3>
+            </div>
+            <p>
+              Multi-level logging (DEBUG, INFO, WARNING, ERROR) provides
+              operational visibility. Logs are rotated automatically to prevent
+              disk space issues.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Skills Demonstrated</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Object-Oriented Design</h4>
+            <p>
+              Clear class hierarchies with appropriate use of inheritance and
+              composition. Abstract base classes define interfaces while
+              concrete implementations provide functionality.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>Design Patterns</h4>
+            <p>
+              Observer pattern for events, Singleton for database connections,
+              Factory for component creation, and Strategy for different
+              calculation algorithms.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>SOLID Principles</h4>
+            <p>
+              Single Responsibility, Open/Closed, Liskov Substitution, Interface
+              Segregation, and Dependency Inversion principles applied
+              throughout.
+            </p>
+          </div>
+          <div class="skill-card">
+            <h4>Code Quality</h4>
+            <p>
+              Consistent style following PEP 8, type hints throughout,
+              meaningful variable names, and appropriate comments where needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Reflection</h2>
+
+        <div class="assessment-content">
+          <p class="lead">
+            The transformation from Arduino to Python taught me that platform
+            constraints fundamentally shape architecture. The Arduino's
+            limitations forced a monolithic design where everything had to be
+            crammed into a single file with global variables. Python's
+            capabilities enabled a modular, event-driven architecture that's
+            maintainable and extensible.
+          </p>
+
+          <h3>Key Learnings</h3>
+          <p>
+            The most challenging aspect was designing the event system to be
+            both flexible and performant. Early versions had race conditions
+            that only appeared under load—events would be processed out of order
+            or lost entirely. Solving this required implementing proper thread
+            synchronization and a priority queue for event processing.
+          </p>
+
+          <p>
+            I learned that good architecture isn't about using the most advanced
+            techniques—it's about choosing the right abstractions for the
+            problem. The event system adds complexity, but it's the right
+            complexity because it makes the system extensible. New features can
+            be added without modifying existing code, which is crucial for
+            long-term maintenance.
+          </p>
+
+          <h3>Challenges Overcome</h3>
+          <p>
+            Testing the event-driven architecture proved particularly
+            challenging. Events are asynchronous, so tests would sometimes pass
+            and sometimes fail depending on timing. I solved this by
+            implementing a test mode that makes events synchronous during
+            testing, ensuring deterministic behavior while maintaining the
+            asynchronous benefits in production.
+          </p>
+
+          <p>
+            Another challenge was managing configuration complexity. As the
+            system grew, the configuration file became unwieldy. I addressed
+            this by implementing configuration validation that provides clear
+            error messages when settings are invalid, and by organizing
+            configuration into logical sections that mirror the system's
+            architecture.
+          </p>
+
+          <h3>Course Outcomes Achievement</h3>
+          <p>
+            This enhancement clearly demonstrates achievement of multiple course
+            outcomes. The modular design supports collaborative development
+            (CS-499-01), as team members could work on different components
+            independently. The comprehensive documentation and clear code
+            structure demonstrate professional communication (CS-499-02). The
+            event-driven architecture showcases innovative techniques
+            (CS-499-04), while the error handling and validation demonstrate a
+            security mindset (CS-499-05).
+          </p>
+
+          <p>
+            Most importantly, this enhancement shows growth from writing code
+            that merely works to engineering systems that are maintainable,
+            testable, and extensible—the hallmark of professional software
+            development.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Gregory John | CS 499 Computer Science Capstone | SNHU</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
