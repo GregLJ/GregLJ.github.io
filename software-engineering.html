@@ -56,7 +56,7 @@
             For this enhancement, I completely redesigned the system in Python
             for deployment on Raspberry Pi, transforming it from a simple timer
             into a sophisticated, event-driven automation platform. This wasn't
-            just a translation from one language to another—it was a complete
+            just a translation from one language to another, it was a complete
             architectural reimagining that leveraged Python's capabilities to
             create a production-ready system.
           </p>
@@ -151,9 +151,9 @@
             determines sunrise has occurred, it publishes a SUNRISE event. The
             relay controller, database manager, and any other interested
             components can subscribe to this event and react accordingly. This
-            loose coupling makes the system extensible—new features can be added
-            by simply subscribing to relevant events without modifying existing
-            code.
+            loose coupling makes the system extensible, new features can be
+            added by simply subscribing to relevant events without modifying
+            existing code.
           </p>
 
           <div class="code-example">
@@ -236,7 +236,7 @@ def handle_sunrise(self, event_data):
               <h3>Configuration Management</h3>
             </div>
             <p>
-              YAML-based configuration replaces hardcoded values, allowing
+              JSON-based configuration replaces hardcoded values, allowing
               runtime adjustments without code changes. Configuration is
               validated on load with helpful error messages.
             </p>
@@ -322,7 +322,7 @@ def handle_sunrise(self, event_data):
 
           <p>
             I learned that good architecture isn't about using the most advanced
-            techniques—it's about choosing the right abstractions for the
+            techniques, it's about choosing the right abstractions for the
             problem. The event system adds complexity, but it's the right
             complexity because it makes the system extensible. New features can
             be added without modifying existing code, which is crucial for
@@ -363,7 +363,7 @@ def handle_sunrise(self, event_data):
           <p>
             Most importantly, this enhancement shows growth from writing code
             that merely works to engineering systems that are maintainable,
-            testable, and extensible—the hallmark of professional software
+            testable, and extensible, the hallmark of professional software
             development.
           </p>
         </div>
